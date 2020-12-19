@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {RegisterPopUp} from '../PopUps/RegisterPopUp'
+import {Navbar} from '../components/Navbar'
 import Popup from 'reactjs-popup'
 import { selectAllCategories, fetchCategories} from  '../category/categoriesSlice'
 import {fetchBooks, selectAllBooks} from '../books/booksSlice'
 
 
 
-export const Books = () => {
+export const Books = (props) => {
     const[category, setCategory] = useState('')
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
@@ -27,6 +28,10 @@ export const Books = () => {
     const categoryStatus = useSelector(state => state.categories.status)
     const bookStatus = useSelector(state => state.books.status)
     
+    if (!localStorage.getItem('token')) {
+        props.history.push('/login')
+        window.location.reload()
+    }
 
     useEffect(() => {
         if (categoryStatus === 'idle' && bookStatus === 'idle' ) {
@@ -44,6 +49,7 @@ export const Books = () => {
 
     return (       
             <>
+                <Navbar/>
                 <div className="ml-40">
                     <div className="flex bg-teal-400 text-white py-4 pl-8">
                         <svg className="fill w-6 h-6" xmlns="http://ww..org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

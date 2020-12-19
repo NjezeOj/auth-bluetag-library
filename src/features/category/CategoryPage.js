@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux'
 import {unwrapResult} from '@reduxjs/toolkit'
 import { categoryAdded, addNewCategories } from './categoriesSlice'
 //import { CategoriesList} from './CategoriesList'
+import {Navbar} from '../components/Navbar'
 
-
-export const CategoryPage = () => {
+export const CategoryPage = (props) => {
     const [category, setCategory] = useState('')
     const [addRequestStatus, setAddRequestStatus] = useState('idle')
 
@@ -35,8 +35,13 @@ export const CategoryPage = () => {
         }*/
     }
     const onCategoryChanged = e => setCategory(e.target.value)
+
+    if (!localStorage.getItem('token')) {
+        props.history.push('/login')
+    }
     return(
         <>
+        <Navbar/>
         <div className="ml-40">
             <div className="bg-teal-400 text-white pt-2 pb-2">
                 <p className="text-2xl pl-4">Create Book Category</p>

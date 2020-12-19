@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import {Navbar} from './components/Navbar'
 
 
 export const HomePage = (props) => {
@@ -28,12 +29,17 @@ export const HomePage = (props) => {
 
     if (!localStorage.getItem('token')) {
         props.history.push('/login')
+        
     }
     return (
-        <div>
-            <button className="ml-40" onClick={logout}>Logout</button>
-            <img class="background" src="https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="libraryImage" />
+        <>
+            <Navbar />
+            <div>
+                <button className="ml-40" onClick={logout}>Logout</button>
+                <img class="background" src="https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="libraryImage" />
 
-        </div>
+            </div>
+        </>
+
     )
 }

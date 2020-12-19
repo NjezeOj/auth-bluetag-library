@@ -12,7 +12,7 @@ const FeaturesComp = () => {
     return (
 
         <Router>
-            <Navbar />
+            
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/registercategory" component={CategoryPage} />

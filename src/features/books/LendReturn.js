@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { LendBook } from '../PopUps/LendBook'
 import { ReturnBook } from '../PopUps/ReturnBook'
 import Popup from 'reactjs-popup'
+import {Navbar} from '../components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import {fetchLendBooks, selectAllLendBooks} from '../lendbook/lendBookSlice'
 
-export const LendReturn = () => {
+export const LendReturn = (props) => {
     const [callno, setCallNo] = useState('')
     const [lendbook, setLendBook] = useState({})
     const [hasbeenreturned, setHasBeenReturned] = useState('')   
@@ -37,8 +38,14 @@ export const LendReturn = () => {
             
     }
 
+    if (!localStorage.getItem('token')) {
+        props.history.push('/login')
+        window.location.reload()
+    }
+
     return (
         <>
+            <Navbar/>
             <div className="ml-40">
                 <div className="flex bg-teal-400 text-white py-4 pl-8">
                     <svg className="fill w-6 h-6" xmlns="http://ww..org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
