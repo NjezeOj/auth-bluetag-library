@@ -35,7 +35,7 @@ export const Login = (props) => {
                     }
                 );
                 localStorage.setItem('token', res.data.token)
-                props.history.push('/')
+                props.history.push('/home')
 
 
             } catch (err) {

@@ -8,8 +8,6 @@ require('dotenv').config();
 
 const jwtSecret = process.env.jwtSecret;
 
-
-
 router.route('/').get((req, res) => {
     User.find()
         .then(users => res.json(users))
@@ -28,6 +26,7 @@ router.route('/register').post(async(req, res) => {
     const borrowertype = req.body.borrowertype;  
     const bookdescription = [];
     const password = req.body.password;
+    const role = req.body.role;
     
     try{
         let user = await User.findOne({regno})
@@ -45,7 +44,7 @@ router.route('/register').post(async(req, res) => {
             borrowertype,
             count: 0,
             password: hashed_password,
-            role: "User",
+            role
             
         });
 

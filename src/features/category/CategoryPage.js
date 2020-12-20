@@ -37,11 +37,11 @@ export const CategoryPage = (props) => {
     const onCategoryChanged = e => setCategory(e.target.value)
 
     if (!localStorage.getItem('token')) {
-        props.history.push('/login')
+        props.history.push('/')
     }
     return(
         <>
-        <Navbar/>
+        
         <div className="ml-40">
             <div className="bg-teal-400 text-white pt-2 pb-2">
                 <p className="text-2xl pl-4">Create Book Category</p>

@@ -1,37 +1,30 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const Register = (props) => {
+export const RegisterAdmin = (props) => {
 
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [regno, setRegNo] = useState('')
-    const [department, setDepartment] = useState('')
     const [phoneno, setPhoneNo] = useState('')
-    const [borrowertype, setBorrowerType] = useState('')
     const [password, setPassword] = useState('')
 
-    
+
     const onSetName = (e) => setName(e.target.value)
     const onSetAddress = (e) => setAddress(e.target.value)
     const onSetRegNo = (e) => setRegNo(e.target.value)
-    const onSetDepartment = (e) => setDepartment(e.target.value)
     const onSetPhoneNo = (e) => setPhoneNo(e.target.value)
-    const onSetBorrowerType = (e) => setBorrowerType(e.target.value)
     const onSetPassword = (e) => setPassword(e.target.value)
 
-    const canSave = [name, address, regno, department, phoneno, borrowertype, password].every(Boolean)
-    const borrowerTypes = ["Student", "Lecturer"]
+    const canSave = [name, address, regno, phoneno,password].every(Boolean)
+    
     const user = {
         name: name,
         address: address,
-        regno: regno,
-        department: department,
+        regno: regno,        
         phoneno: phoneno,
-        borrowertype: borrowertype,
-        count: 0,
         password,
-        role: "User"
+        role: "Admin"
 
     }
     const onSaveUserClicked = async (e) => {
@@ -39,22 +32,22 @@ const Register = (props) => {
 
         if (canSave) {
             try {
-                
+
                 await axios.post(
-                    'http://localhost:5000/user/register', 
+                    'http://localhost:5000/user/register',
                     user,
                     {
                         headers: {
                             "Content-Type": "application/json",
                         }
-                    } 
+                    }
                 );
                 props.history.push('/')
-            
+
 
             } catch (err) {
                 console.log("error:", err.response.data.error)
-            } 
+            }
         }
 
     }
@@ -63,7 +56,7 @@ const Register = (props) => {
     return (
         <div>
             <div className="bg-teal-400 text-white pt-2 pb-2">
-                <p className="text-2xl pl-4">Register User</p>
+                <p className="text-2xl pl-4">Register Admin</p>
             </div>
             <form className="pt-5 pl-4 pb-2 bg-gray-100 border-b-8">
                 <div>
@@ -101,43 +94,7 @@ const Register = (props) => {
                         onChange={onSetRegNo}
                         type="text"
                         placeholder="Enter Registration Number" />
-                </div>
-
-                <div className="relative pt-4 w-2/5">
-                    <label className="block font-bold pl-3" htmlFor="borrowertype">
-                        BorrowerType
-                    </label>
-                    <select className="block appearance-none w-full border border-gray-300 text-gray-700 py-2 px-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        name="borrowertype"
-                        id="borrowertype"
-                        type="text"
-                        value={borrowertype}
-                        onChange={onSetBorrowerType}>
-                        <option value="">Choose a BorrowerType</option>
-                        {
-                            borrowerTypes.map((element, index) => {
-                                return <option key={index}>{element}</option>
-                            })
-                        }
-
-                    </select>
-
-                    <div className="absolute right-0 ">
-                        <svg className="text-black -mt-8 fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                    </div>
-                </div>
-
-                <div className="pt-4">
-                    <label className="block font-bold pl-3" htmlFor="department">
-                        Department
-                    </label>
-                    <input className="appearance-none border rounded w-2/5 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="department"
-                        type="text"
-                        value={department}
-                        onChange={onSetDepartment}
-                        placeholder="Enter Department" />
-                </div>
+                </div>        
 
                 <div className="pt-4">
                     <label className="block font-bold pl-3" htmlFor="phoneno">
@@ -175,5 +132,3 @@ const Register = (props) => {
 
     )
 }
-
-export default Register

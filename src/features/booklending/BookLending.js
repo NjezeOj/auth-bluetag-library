@@ -29,7 +29,7 @@ export const BookLending = (props) => {
     const canSave = [maxnobooksstudent, maxnobookslecturer, maxnodaysstudent, maxnodayslecturer, penaltystudent, penaltylecturer].every(Boolean) && addRequestStatus === 'idle'
 
     if (!localStorage.getItem('token')) {
-        props.history.push('/login')
+        props.history.push('/')
         window.location.reload()
     }
     const policy = {
@@ -82,7 +82,7 @@ export const BookLending = (props) => {
 
     return (
         <>
-            <Navbar/>
+            
             <div className="ml-40">
                 <div className="bg-teal-400 text-white pt-2 pb-2">
                     <p className="text-2xl pl-4">Book Lending Policy</p>

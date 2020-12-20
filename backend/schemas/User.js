@@ -18,7 +18,7 @@ let User = mongoose.Schema({
 
     department: {
         type: String,
-        required: true
+        required: false
     },
     
     phoneno: {
@@ -34,7 +34,7 @@ let User = mongoose.Schema({
 
     borrowertype: {
         type: String,
-        required: true
+        required: false
     },
 
     count: {
