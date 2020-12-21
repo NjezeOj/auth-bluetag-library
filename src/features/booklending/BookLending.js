@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchPolicies, addNewPolicies, selectAllPolicies} from './bookLendingSlice'
 import {unwrapResult} from '@reduxjs/toolkit'
-import {Navbar} from '../components/Navbar'
 import axios from 'axios'
 
 

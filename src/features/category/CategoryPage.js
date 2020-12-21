@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {unwrapResult} from '@reduxjs/toolkit'
-import { categoryAdded, addNewCategories } from './categoriesSlice'
-//import { CategoriesList} from './CategoriesList'
-import {Navbar} from '../components/Navbar'
+import { addNewCategories } from './categoriesSlice'
+
 
 export const CategoryPage = (props) => {
     const [category, setCategory] = useState('')

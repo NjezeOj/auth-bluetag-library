@@ -1,25 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios'
-import {Navbar} from './components/Navbar'
-
+import React from 'react';
 
 export const HomePage = (props) => {
-    const [user, setUser] = useState({});
-
-    const getUser = async () => {
-        const res = await axios.get("http://localhost:5000/user/getuser", {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-        });
-        setUser(res.data)
-    }
-
-    //we want to call getUser to setUser whenever the component mounts
-    useEffect(() => {
-        getUser();
-    }, [])
 
     const logout = () => {
         localStorage.removeItem('token')                

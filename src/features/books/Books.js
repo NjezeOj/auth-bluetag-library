@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {RegisterPopUp} from '../PopUps/RegisterPopUp'
-import {Navbar} from '../components/Navbar'
 import Popup from 'reactjs-popup'
 import { selectAllCategories, fetchCategories} from  '../category/categoriesSlice'
 import {fetchBooks, selectAllBooks} from '../books/booksSlice'

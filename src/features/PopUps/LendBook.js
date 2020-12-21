@@ -15,8 +15,6 @@ export const LendBook = ({ close }) => {
     const [returndate, setReturnDate] = useState(new Date())
     const [user, setUser] = useState({})
     const [book, setBook] = useState({})
-    const [policy, setPolicy] = useState({})
-       
     const [lenddate] = useState(new Date())   
 
 
