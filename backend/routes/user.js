@@ -24,9 +24,10 @@ router.route('/register').post(async(req, res) => {
     const department = req.body.department;
     const phoneno = req.body.phoneno;  
     const borrowertype = req.body.borrowertype;  
-    const bookdescription = [];
+    const bookdescription = req.body.bookdescription;
     const password = req.body.password;
     const role = req.body.role;
+    const count = req.body.count;
     
     try{
         let user = await User.findOne({regno})
@@ -42,7 +43,7 @@ router.route('/register').post(async(req, res) => {
             phoneno,
             bookdescription,
             borrowertype,
-            count: 0,
+            count,
             password: hashed_password,
             role
             

@@ -32,10 +32,12 @@ export const HomePage = (props) => {
         
     }
     return (
-        <>
-            
+        <>            
             <div>
-                <button className="ml-40" onClick={logout}>Logout</button>
+                <div className="ml-40 bg-teal-400">
+                    <button className="bg-white rounded" onClick={logout}>Sign Out</button>
+                </div>
+                
                 <img class="background" src="https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="libraryImage" />
 
             </div>

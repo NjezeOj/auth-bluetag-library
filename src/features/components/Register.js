@@ -26,6 +26,7 @@ const Register = (props) => {
         name: name,
         address: address,
         regno: regno,
+        bookdescription: [],
         department: department,
         phoneno: phoneno,
         borrowertype: borrowertype,
