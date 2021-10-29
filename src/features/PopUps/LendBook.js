@@ -98,8 +98,8 @@ export const LendBook = ({ close }) => {
 
 
 
-    const onLendBook = async (e) => {
-        e.preventDefault()
+    const onLendBook = async () => {
+        
         if ((user.borrowertype === 'Student' && user.count < policies[0].maxnobooksstudent) || (user.borrowertype === 'Lecturer' && user.count <= policies[0].maxnobookslecturer)){
             
             var count = user.count

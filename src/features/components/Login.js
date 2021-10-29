@@ -50,7 +50,7 @@ export const Login = (props) => {
     return (
         <div>
             <div className="bg-teal-400 text-white pt-2 pb-2">
-                <p className="text-2xl pl-4">Register User</p>
+                <p className="text-2xl pl-4">User Login</p>
                 
             </div>
             <form className="pt-5 pl-4 pb-2 bg-gray-100 border-b-8">

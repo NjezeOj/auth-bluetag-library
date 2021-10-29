@@ -60,7 +60,7 @@ export const ReturnBook = ({ close }) => {
     }
 
     const onReturnBook = (e) => {
-        e.preventDefault()
+        
 
         lentbooks.forEach(lentbook => {
 
